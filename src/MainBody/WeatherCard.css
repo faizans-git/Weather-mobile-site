@@ -1,0 +1,60 @@
+
+
+.weather-card {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    height: 240px;
+    margin-top: 9px;
+    width: 330px;
+    height: 230px;
+    background-color: rgb(38, 55, 183);
+    border-radius: 14px;
+}
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    height: 40%;
+}
+
+.location {
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.date {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.card-main {
+    margin-top: 20px;
+    display: flex;
+    margin-left: 40px;
+
+    align-items: center;
+    
+    
+    
+}
+
+.weather-icon {
+    font-size: 36px;
+    height: 30px;
+    width: 30px;
+    background-clip: text;
+    
+    
+
+}
+
+.temperature {
+    font-size: 60px;
+    margin-left: 46px;
+    font-weight: 700;
+    font-style: italic;
+}

@@ -1,0 +1,33 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+.search-input {
+    background-color: rgb(37, 37, 63);
+    color: rgb(227, 227, 227);
+    font-size: 15px;
+    height: 35px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 8px;
+    padding-left: 15px;
+}
+
+input:focus {
+    outline: none;   /* removes the blue highlight */
+    border: none;    /* optional: remove border too */
+    box-shadow: none; /* some browsers use shadow instead */
+  }
+
+.search-button {
+    font-size: 15px;
+    height: 35px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(39, 55, 183);
+    color: white;
+}

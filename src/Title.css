@@ -1,0 +1,21 @@
+.title {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 343px;
+    height: 186px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    align-items: center;
+    margin-bottom: 48px;
+    
+    
+}
+
+.title-text {
+    font-size: 38px;
+    margin-bottom: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    
+}

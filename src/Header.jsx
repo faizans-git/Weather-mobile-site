@@ -1,18 +1,18 @@
-import 'Header.css';
-import logo from '../assets/logo.png'
+import logo from './assets/logo.png';
+import './Header.css';
 
-export function Head() {
+export function Header() {
     return (
-        <div className="header">
-          <div className="right-head">
+        <div class="header">
+          <div class="right-head">
             <img
               src={logo}
               alt="."
-              className="header-logo"
+              class="header-logo"
             />
             CF Weather
           </div>
-          <div className="selector-head">
+          <div class="selector-head">
             <label for="unit-selector">⚙️ Units</label>
             <select name="unit-selector">
               <option value="metric">°C</option>

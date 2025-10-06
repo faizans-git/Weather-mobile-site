@@ -1,0 +1,119 @@
+
+
+.daily-forecast-title {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.daily-forecast-flex-box {
+    display: flex;
+    margin-right: 16px;
+    width: 375px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+
+}
+
+.forecast-box {
+    flex-shrink: 0;
+    width: 110px;
+    background-color: rgb(38, 37, 64);
+    margin-right: 14px;
+    margin-bottom: 12px;
+    height: 155px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    
+}
+
+.forecast-day {
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.forecast-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.forecast-temp {
+    display: flex;
+    justify-content: space-between;
+    width: 82%;
+    font-size: 15px;
+}
+
+.hourly-forecast {
+    background-color: rgb(38, 37, 64);
+    width: 375px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.hourly-forecast-header {
+    padding-top: 10px;
+    margin-right: 12px;
+    display: flex;
+    color: white;
+    min-width: 360;
+    justify-content: space-between;
+    align-items: center;
+     margin-bottom: 15px;
+}
+
+.hourly-forecast-header-title {
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 8px;
+}
+
+.day-selector {
+    background-color: rgb(60, 59, 93);
+    border: none;
+    color: white;
+    border: none;
+    font-size: 13px;
+    padding: 5px 7px;
+    border-radius: 5px;
+    padding-left: 8px;
+}
+
+.day-selector:focus {
+    outline: none;        
+    border: none;
+    box-shadow: none;     
+}
+
+.forecast-hour {
+    margin: 6px 12px;
+    background-color: rgb(48, 47, 74);
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 45px;
+}
+
+.forecast-hour-info {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding-left: 16px;
+    
+}
+
+.forecast-hour-icon {
+    font-size: 16px;
+    margin-right: 15px;
+}
