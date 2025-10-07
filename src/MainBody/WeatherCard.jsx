@@ -1,16 +1,24 @@
 import './WeatherCard.css';
 
-export function WeatherCard() {
+
+export function WeatherCard({ city,weather }) {
+
+  const timeStamp = weather?.current_weather?.time || '7-9-2025';
+  const date = new Date(timeStamp);
+  const options = { weekday: "long", year: "numeric", month: "short", day: "numeric" };
+  const properDate = date.toLocaleDateString("en-US", options)
+    
+  
     return (
-        <div class="weather-card">
-            <div class="card-top">
-              <p class="location">Berlin, Germany</p>
-              <p class="date">Tuesday, Aug 5, 2025</p>
+        <div className="weather-card">
+            <div className="card-top">
+              <p className="location">{city.name} , {city.country}</p>
+              <p className="date">{properDate}</p>
             </div>
-            <div class="card-main">
-              <div class="weather-icon">☀️</div>
-              <div class="temperature">
-                20<span class="degree">°</span>
+            <div className="card-main">
+              <div className="weather-icon">☀️</div>
+              <div className="temperature">
+                {Math.round(weather.current_weather.temperature)}<span className="degree">°</span>
               </div>
             </div>
           </div>

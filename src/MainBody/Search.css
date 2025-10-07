@@ -31,3 +31,30 @@ input:focus {
     background-color: rgb(39, 55, 183);
     color: white;
 }
+
+.city-options {
+    background-color: pink;
+}
+
+.city-dropdown {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    margin-top: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .city-dropdown li {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .city-dropdown li:hover {
+    background-color: #f0f0f0;
+  }
+  
