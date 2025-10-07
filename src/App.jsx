@@ -35,7 +35,7 @@ function App() {
       if (city) {
         try {
           console.log(city)
-          const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&hourly=precipitation,precipitation_probability,snowfall&current_weather=true`)
+          const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,wind_speed_10m,weathercode&timezone=auto`)
           const weatherData = await weatherResponse.json();
           setWeather(weatherData)
           console.log(weatherData)
@@ -69,7 +69,7 @@ function App() {
 
           <WeatherCard city={city} weather={weather} />
 
-          <GeneralInfo />
+          <GeneralInfo weather={weather} />
 
           <HourlyForecast />
         </div>

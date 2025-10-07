@@ -22,7 +22,7 @@ export function WeatherCard({ city, weather }) {
       <div className="card-main">
         <div className="weather-icon">☀️</div>
         <div className="temperature">
-          {Math.round(weather?.current_weather?.temperature ?? 0)}
+          {Math.round(weather?.current?.temperature_2m ?? 0)}
           <span className="degree">°</span>
         </div>
       </div>
