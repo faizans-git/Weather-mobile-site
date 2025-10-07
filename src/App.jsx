@@ -71,7 +71,7 @@ function App() {
 
           <GeneralInfo weather={weather} />
 
-          <HourlyForecast />
+          <HourlyForecast city={city} />
         </div>
       </div>
     </>
