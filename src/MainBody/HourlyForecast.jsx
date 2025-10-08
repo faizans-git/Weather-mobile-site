@@ -2,19 +2,20 @@ import dayjs from "dayjs";
 import "./HourlyForecast.css";
 import { useState, useEffect } from "react";
 
-export function HourlyForecast({ city,getWeatherCodeResponse}) {
+export function HourlyForecast({ city,getWeatherCodeResponse,unit}) {
   const [hourlyWeatherList, setHourlyWeatherList] = useState([]);
   const [selectedDay, setSelectedDay] = useState(dayjs().format("YYYY-MM-DD"));
   
+  const tempUnit = unit === 'metric' ? 'celsius' : 'fahrenheit';
 
   useEffect(() => {
     const getHourlyData = async () => {
       const apiRes = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&hourly=temperature_2m,precipitation,weathercode,relative_humidity_2m,wind_speed_10m&timezone=auto`
+        `https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&hourly=temperature_2m,precipitation,weathercode,relative_humidity_2m,wind_speed_10m&timezone=auto&temperature_unit=${tempUnit}`
       );
       const weatherData = await apiRes.json();
 
-      const list = weatherData.hourly.time.map((time, i) => ({
+      const list = weatherData?.hourly.time.map((time, i) => ({
         time,
         temperature: weatherData.hourly.temperature_2m[i],
         humidity: weatherData.hourly.relative_humidity_2m[i],
@@ -27,7 +28,9 @@ export function HourlyForecast({ city,getWeatherCodeResponse}) {
     };
 
     getHourlyData();
-  }, [city]);
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [city,unit]);
 
   
   const availableDays = [
@@ -67,7 +70,7 @@ export function HourlyForecast({ city,getWeatherCodeResponse}) {
                 {dayjs(weather.time).format("h A")}
               </div>
             </div>
-            <div className="forecast-hour-temp">{weather.temperature}°C</div>
+            <div className="forecast-hour-temp">{weather.temperature} {unit === 'metric' ? '°C' : '°F'}</div>
           </div>
         ))
       ) : (

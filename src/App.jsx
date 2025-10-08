@@ -10,6 +10,8 @@ import { useState,useEffect } from "react";
 
 function App() {
 
+  const [unit,setUnit] = useState('metric');
+
 
   const getWeatherCodeResponse = (code) => {
     const weatherCodeResponse = {
@@ -45,6 +47,17 @@ function App() {
     return weatherCodeResponse[code]
   }
 
+  const unitSettings = unit === 'metric' ? {
+    temperature: 'celsius',
+    windSpeed: 'kmh',
+    precipitation: 'mm',
+  } : {
+    temperature: 'fahrenheit',
+    windSpeed: 'mph',
+    precipitation: 'inch',
+  };
+
+
   const [city, setCity] = useState({
     id: 1164909,
     name: "Siālkot",
@@ -70,11 +83,11 @@ function App() {
 
       if (city) {
         try {
-          console.log(city)
-          const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,wind_speed_10m,weathercode&timezone=auto`)
+          
+          const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,wind_speed_10m,weathercode&timezone=auto&temperature_unit=${unitSettings.temperature}&windspeed_unit=${unitSettings.windSpeed}&precipitation_unit=${unitSettings.precipitation}`)
           const weatherData = await weatherResponse.json();
           setWeather(weatherData)
-          console.log(weatherData)
+          
         }
         catch {
           console.log('api error')
@@ -88,6 +101,7 @@ function App() {
 
     fetchWeatherData();
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[city])
 
   //const hourlyRainProb = weather.hourly.precipitation_probability;
@@ -97,7 +111,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <Header />
+        <Header setUnit={setUnit} unit={unit} />
         <Title />
         
         <div className="main-body">
@@ -105,9 +119,9 @@ function App() {
 
           <WeatherCard city={city} weather={weather} getWeatherCodeResponse={getWeatherCodeResponse} />
 
-          <GeneralInfo weather={weather} />
+          <GeneralInfo weather={weather} unit={unit}  />
 
-          <HourlyForecast city={city} getWeatherCodeResponse={getWeatherCodeResponse} />
+          <HourlyForecast city={city} getWeatherCodeResponse={getWeatherCodeResponse} unit={unit} />
         </div>
       </div>
     </>
