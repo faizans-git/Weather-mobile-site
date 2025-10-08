@@ -1,5 +1,5 @@
 import './WeatherCard.css'
-export function WeatherCard({ city, weather }) {
+export function WeatherCard({ city, weather,getWeatherCodeResponse }) {
   const timeStamp = weather?.current_weather?.time || "7-9-2025";
   const date = new Date(timeStamp);
   const options = {
@@ -20,7 +20,7 @@ export function WeatherCard({ city, weather }) {
       </div>
 
       <div className="card-main">
-        <div className="weather-icon">☀️</div>
+        <div className="weather-icon">{weather && getWeatherCodeResponse(weather?.current.weathercode)}</div>
         <div className="temperature">
           {Math.round(weather?.current?.temperature_2m ?? 0)}
           <span className="degree">°</span>

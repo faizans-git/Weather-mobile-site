@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import "./HourlyForecast.css";
 import { useState, useEffect } from "react";
 
-export function HourlyForecast({ city }) {
+export function HourlyForecast({ city,getWeatherCodeResponse}) {
   const [hourlyWeatherList, setHourlyWeatherList] = useState([]);
   const [selectedDay, setSelectedDay] = useState(dayjs().format("YYYY-MM-DD"));
   
@@ -52,7 +52,7 @@ export function HourlyForecast({ city }) {
         >
           {availableDays.map(day => (
             <option key={day} value={day}>
-              {dayjs(day).format("dddd")} {/* e.g. Tuesday */}
+              {dayjs(day).format("dddd")} 
             </option>
           ))}
         </select>
@@ -62,7 +62,7 @@ export function HourlyForecast({ city }) {
         filteredHours.filter(weather => dayjs(weather.time).isAfter(dayjs())).map((weather, index) => (
           <div key={index} className="forecast-hour">
             <div className="forecast-hour-info">
-              <div className="forecast-hour-icon">🌧️</div>
+              <div className="forecast-hour-icon">{weather && getWeatherCodeResponse(weather.weatherCode)}</div>
               <div className="forecast-hour-time">
                 {dayjs(weather.time).format("h A")}
               </div>

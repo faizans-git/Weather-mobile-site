@@ -9,6 +9,42 @@ import { HourlyForecast } from "./MainBody/HourlyForecast";
 import { useState,useEffect } from "react";
 
 function App() {
+
+
+  const getWeatherCodeResponse = (code) => {
+    const weatherCodeResponse = {
+      0: "☀️",
+      1: "🌤️",
+      2: "⛅",
+      3: "☁️",
+      45: "🌫️",
+      48: "🌁",
+      51: "🌦️",
+      53: "🌧️",
+      55: "🌧️☂️",
+      56: "🌧️❄️",
+      57: "🌧️❄️",
+      61: "🌦️",
+      63: "🌧️",
+      65: "🌧️🌧️",
+      66: "🌧️",
+      67: "🌧️",
+      71: "🌨️",
+      73: "❄️🌨️",
+      75: "❄️❄️🌨️",
+      77: "🌨️",
+      80: "🌦️",
+      81: "🌧️",
+      82: "🌧️⚡",
+      85: "🌨️",
+      86: "❄️🌨️",
+      95: "⛈️",
+      96: "⛈️🧊",
+      99: "⛈️🧊",
+    };
+    return weatherCodeResponse[code]
+  }
+
   const [city, setCity] = useState({
     id: 1164909,
     name: "Siālkot",
@@ -56,7 +92,7 @@ function App() {
 
   //const hourlyRainProb = weather.hourly.precipitation_probability;
   //const hourlyPrecipitation = weather.hourly.precipitation;
-  //const hourlySnow = weather.hourly.snowfall;  
+  //const hourlySnow = weather.hourly.snowfall; 
 
   return (
     <>
@@ -67,11 +103,11 @@ function App() {
         <div className="main-body">
           <SearchContainer setCity={setCity} city={city} />
 
-          <WeatherCard city={city} weather={weather} />
+          <WeatherCard city={city} weather={weather} getWeatherCodeResponse={getWeatherCodeResponse} />
 
           <GeneralInfo weather={weather} />
 
-          <HourlyForecast city={city} />
+          <HourlyForecast city={city} getWeatherCodeResponse={getWeatherCodeResponse} />
         </div>
       </div>
     </>
