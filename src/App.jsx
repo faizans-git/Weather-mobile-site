@@ -102,7 +102,7 @@ function App() {
     fetchWeatherData();
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[city])
+  },[city,unit])
 
   //const hourlyRainProb = weather.hourly.precipitation_probability;
   //const hourlyPrecipitation = weather.hourly.precipitation;
